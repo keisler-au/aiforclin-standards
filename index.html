@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Ethical Standards - Psychology Squared</title>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-  <!-- React and ReactDOM from CDN -->
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <!-- Babel for JSX transpilation in-browser -->
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Ethical Standards for Australian Psychology professionals and trainees. Guidelines for responsible AI use by Psychology Squared Pty Ltd.">
+  <meta name="keywords" content="AI ethics, psychology, Australian psychology, internship, early career, ethical standards">
+  <meta name="author" content="Psychology Squared Pty Ltd">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="AI Ethical Standards - Psychology Squared">
+  <meta property="og:description" content="Comprehensive ethical guidelines for AI use in Australian psychology practice and training">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Psychology Squared">
+  
+  <title>AI Ethical Standards - Psychology Squared | Australian Psychology AI Guidelines</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
+  <!-- Preload critical font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap"></noscript>
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "AI Ethical Standards",
+    "description": "AI Ethical Standards for Australian Psychology professionals and trainees",
+    "author": {
+      "@type": "Organization",
+      "name": "Psychology Squared Pty Ltd",
+      "email": "hello@psychologysquared.com.au"
+    },
+    "dateModified": "2023-11-30",
+    "inLanguage": "en-AU"
+  }
+  </script>
+  
   <style>
+    /* CSS Custom Properties */
     :root {
       --primary-gold: #D4AF37;
       --gold-light: #F4E4BC;
@@ -26,105 +54,120 @@
       --hover-bg: rgba(212, 175, 55, 0.15);
       --card-bg: rgba(212, 175, 55, 0.08);
       --transition: all 0.3s ease;
+      --focus-outline: 2px solid var(--primary-gold);
+      --focus-offset: 2px;
+    }
+
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    body, html {
-      font-family: 'Lora', serif;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
       background: linear-gradient(135deg, var(--navy-deepest) 0%, var(--navy-darker) 50%, var(--navy-dark) 100%);
       color: var(--text-primary);
-      min-height: 100vh;
       line-height: 1.6;
+      min-height: 100vh;
     }
 
-    .min-h-screen { min-height: 100vh; }
-    .container { max-width: 900px; margin: 0 auto; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .px-4 { padding-left: 1rem; padding-right: 1rem; }
-    .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
-    .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-    .pt-6 { padding-top: 1.5rem; }
-    .mb-8 { margin-bottom: 2rem; }
-    .mt-8 { margin-top: 2rem; }
-    .mb-2 { margin-bottom: 0.5rem; }
-    .mb-4 { margin-bottom: 1rem; }
-    .rounded { border-radius: 0.5rem; }
-    .rounded-full { border-radius: 9999px; }
-    .shadow-lg { box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15); }
-    .fixed { position: fixed; }
-    .sticky { position: sticky; }
-    .top-0 { top: 0; }
-    .top-1 { top: 0.25rem; }
-    .bottom-6 { bottom: 1.5rem; }
-    .right-6 { right: 1.5rem; }
-    .w-full { width: 100%; }
-    .h-1 { height: 0.25rem; }
-    .h-full { height: 100%; }
-    .w-4 { width: 1rem; }
-    .h-4 { height: 1rem; }
-    .w-5 { width: 1.25rem; }
-    .h-5 { height: 1.25rem; }
-    .w-12 { width: 3rem; }
-    .h-12 { height: 3rem; }
-    .flex { display: flex; }
-    .gap-2 { gap: 0.5rem; }
-    .items-center { align-items: center; }
-    .justify-between { justify-content: space-between; }
-    .justify-center { justify-content: center; }
-    .text-center { text-align: center; }
-    .text-2xl { font-size: 1.5rem; font-weight: 700; }
-    .text-lg { font-size: 1.125rem; font-weight: 700; }
-    .font-bold { font-weight: 700; }
-    .font-medium { font-weight: 500; }
-    .space-y-2 > * + * { margin-top: 0.5rem; }
-    .space-y-3 > * + * { margin-top: 0.75rem; }
-    .space-y-4 > * + * { margin-top: 1rem; }
-    .scroll-mt-20 { scroll-margin-top: 5rem; }
-    .transition-colors { transition: background 0.3s ease; }
-    .transition-all { transition: all 0.3s ease; }
-    .duration-300 { transition-duration: 0.3s; }
-    .p-2 { padding: 0.5rem; }
-    .max-w-4xl { max-width: 56rem; }
-    .z-40 { z-index: 40; }
-    .z-50 { z-index: 50; }
-    .cursor-pointer { cursor: pointer; }
-    .italic { font-style: italic; }
-    .text-sm { font-size: 0.875rem; }
-    .leading-relaxed { line-height: 1.6; }
+    /* Skip Link for Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-gold);
+      color: var(--navy-dark);
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
+      font-weight: bold;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
+    /* Focus Management */
+    button:focus,
+    a:focus,
+    [tabindex]:focus {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-offset);
+    }
 
     /* Progress Bar */
     .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
       background: var(--navy-darker);
       border-bottom: 1px solid var(--border-color);
+      z-index: 50;
     }
+
     .progress-fill {
+      height: 100%;
       background: linear-gradient(90deg, var(--primary-gold), var(--gold-light));
       box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+      transition: width 0.1s ease;
+      width: 0;
     }
 
     /* Header */
     .header {
+      position: sticky;
+      top: 4px;
       background: rgba(26, 43, 68, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
+      z-index: 40;
+    }
+
+    .header-content {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .main-title {
       color: var(--primary-gold);
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       letter-spacing: 0.025em;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    /* Container */
+    .container {
+      max-width: 56rem;
+      margin: 0 auto;
+      padding: 2rem 1rem;
     }
 
     /* Cards */
     .card {
       background: var(--card-bg);
       border: 2px solid var(--border-color);
-      border-radius: 0.5rem;
+      border-radius: 8px;
       margin-bottom: 1.25rem;
       overflow: hidden;
       position: relative;
@@ -165,6 +208,7 @@
       font-weight: 700;
       color: var(--primary-gold);
       letter-spacing: 0.025em;
+      margin: 0;
     }
 
     .card-content {
@@ -184,13 +228,13 @@
       gap: 0.5rem;
       padding: 0.75rem 1.5rem;
       border: 2px solid var(--border-color);
-      border-radius: 0.5rem;
+      border-radius: 8px;
       background: var(--card-bg);
       color: var(--primary-gold);
       cursor: pointer;
       font-size: 0.875rem;
       font-weight: 500;
-      font-family: 'Lora', serif;
+      font-family: inherit;
       transition: var(--transition);
       text-decoration: none;
       position: relative;
@@ -220,30 +264,78 @@
       box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
     }
 
-    .btn-icon {
+    .btn-round {
       justify-content: center;
       width: 3rem;
       height: 3rem;
-      border-radius: 9999px;
+      border-radius: 50%;
+      padding: 0;
     }
 
-    /* Text Styling */
-    .text-muted {
-      color: var(--text-muted);
+    /* Text Utilities */
+    .text-center { text-align: center; }
+    .text-muted { color: var(--text-muted); }
+    .text-secondary { color: var(--text-secondary); }
+    .font-medium { font-weight: 500; }
+    .text-sm { font-size: 0.875rem; }
+    .text-lg { font-size: 1.125rem; font-weight: 700; }
+    .italic { font-style: italic; }
+    .leading-relaxed { line-height: 1.625; }
+
+    /* Spacing */
+    .mb-2 { margin-bottom: 0.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-8 { margin-bottom: 2rem; }
+    .mt-1 { margin-top: 0.25rem; }
+    .mt-8 { margin-top: 2rem; }
+    .pt-6 { padding-top: 1.5rem; }
+
+    /* Layout */
+    .flex { display: flex; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .justify-center { justify-content: center; }
+    .gap-2 { gap: 0.5rem; }
+    .space-y-2 > * + * { margin-top: 0.5rem; }
+    .space-y-3 > * + * { margin-top: 0.75rem; }
+
+    /* Table of Contents */
+    .toc-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
     }
 
-    .text-secondary {
-      color: var(--text-secondary);
+    .toc-button {
+      text-align: left;
+      padding: 0.75rem;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--primary-gold);
+      font-family: inherit;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    .toc-button:hover {
+      background: var(--hover-bg);
+      border-color: var(--primary-gold);
+      text-decoration: underline;
     }
 
     /* Lists */
-    ul {
+    .content-list {
       padding-left: 1.5rem;
+      list-style-type: disc;
     }
 
-    li {
+    .content-list li {
       margin-bottom: 0.75rem;
       color: var(--text-secondary);
+      line-height: 1.625;
     }
 
     /* Links */
@@ -258,36 +350,56 @@
       color: var(--gold-light);
     }
 
-    /* Table of Contents Grid */
-    .toc-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .toc-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .toc-button {
-      text-align: left;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      background: transparent;
-      border: 1px solid var(--border-color);
-      color: var(--primary-gold);
-      font-family: 'Lora', serif;
-      font-size: 0.875rem;
-      cursor: pointer;
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+      opacity: 0;
+      visibility: hidden;
       transition: var(--transition);
     }
 
-    .toc-button:hover {
-      background: var(--hover-bg);
-      border-color: var(--primary-gold);
-      text-decoration: underline;
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Icons */
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+    }
+
+    .icon-sm {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    /* Expandable Sections */
+    .expandable-header {
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: inherit;
+      font: inherit;
+      padding: 0;
+    }
+
+    .expandable-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .expandable-content.expanded {
+      max-height: 1000px;
     }
 
     /* Animations */
@@ -306,22 +418,38 @@
       animation: fadeInUp 0.6s ease forwards;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      .toc-grid {
+        grid-template-columns: 1fr 1fr;
       }
-
-      .card-header, .card-content {
-        padding: 1.25rem;
-      }
-
-      .text-2xl {
-        font-size: 1.3rem;
+      
+      .header-content {
+        flex-wrap: nowrap;
       }
     }
 
+    @media (max-width: 767px) {
+      .container {
+        padding: 1rem;
+      }
+
+      .card-header,
+      .card-content {
+        padding: 1.25rem;
+      }
+
+      .main-title {
+        font-size: 1.3rem;
+      }
+      
+      .header-content {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    /* Reduced Motion */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -329,24 +457,136 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+      }
+      
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* High Contrast Mode */
+    @media (prefers-contrast: high) {
+      :root {
+        --border-color: var(--primary-gold);
+        --card-bg: var(--navy-dark);
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .progress-bar,
+      .back-to-top,
+      .btn {
+        display: none !important;
+      }
+      
+      .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #000;
+      }
+      
+      body {
+        background: white !important;
+        color: black !important;
       }
     }
   </style>
 </head>
 <body>
-  <div id="root"></div>
-  <script type="text/babel">
-    // SVG Icons with gold coloring
-    const ChevronDown = () => (<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7"/></svg>);
-    const ChevronUp = () => (<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7"/></svg>);
-    const Download = () => (<svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12"/></svg>);
-    const ArrowUp = () => (<svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7 7 7M12 3v18"/></svg>);
-    const Mail = () => (<svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>);
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <!-- Progress Bar -->
+  <div class="progress-bar" role="progressbar" aria-label="Page reading progress">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
 
-    
-    // Standards data (from App.jsx)
-    const aiStandards = [
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <h1 class="main-title">AI Ethical Standards</h1>
+      <div class="flex gap-2">
+        <button type="button" class="btn" id="download-btn" aria-label="Download PDF version">
+          <svg class="icon icon-sm" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 4v12"/>
+          </svg>
+          Download PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <!-- Organization Info -->
+    <section class="text-center mb-8">
+      <p class="text-sm text-muted mb-2">
+        <time datetime="2023-11-30">Last updated on 30 November 2023</time>
+      </p>
+      <address class="text-sm text-muted mb-4 not-italic">
+        Psychology Squared Pty Ltd<br>
+        "Psychology Squared"<br>
+        ABN 16 638 041 719
+      </address>
+    </section>
+
+    <!-- Introduction -->
+    <section class="card mb-8">
+      <header class="card-header">
+        <h2 class="card-title text-lg">
+          AI Ethical Standards for the Facebook page "AI and Australian Psychology Internship and Early Career" or AI related products and services by Psychology Squared
+        </h2>
+      </header>
+      <div class="card-content">
+        <p class="font-medium text-secondary">Here's a list of ethical standards for psychologists and psychologists in training regarding the use of AI:</p>
+      </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <nav class="card mb-8" aria-label="Standards navigation">
+      <header class="card-header">
+        <h2 class="card-title text-lg">Table of Contents</h2>
+      </header>
+      <div class="card-content">
+        <div class="toc-grid" id="toc-grid">
+          <!-- Table of contents will be populated by JavaScript -->
+        </div>
+      </div>
+    </nav>
+
+    <!-- Standards Sections -->
+    <section id="standards-container">
+      <!-- Standards will be populated by JavaScript -->
+    </section>
+
+    <!-- Attribution -->
+    <footer class="card mt-8">
+      <div class="card-content pt-6">
+        <div class="text-center space-y-2">
+          <p class="font-medium text-secondary">Attribution: Psychology Squared Pty Ltd</p>
+          <div class="flex items-center justify-center gap-2">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:hello@psychologysquared.com.au">
+              hello@psychologysquared.com.au
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="btn btn-round back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7 7 7M12 3v18"/>
+    </svg>
+  </button>
+
+  <script>
+    // AI Standards Data
+        // Standards data (from App.jsx)
+        const aiStandards = [
   {
     id: 'accountability',
     title: '1. Accountability',
@@ -487,204 +727,297 @@
   }
 ]
 
-   
-    function App() {
-      const [expandedSections, setExpandedSections] = React.useState({});
-      const [scrollProgress, setScrollProgress] = React.useState(0);
-      const [showBackToTop, setShowBackToTop] = React.useState(false);
+    // State management
+    const state = {
+      expandedSections: new Set(),
+      scrollProgress: 0,
+      showBackToTop: false
+    };
 
-      React.useEffect(() => {
-        const handleScroll = () => {
-          const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const progress = (window.scrollY / totalHeight) * 100;
-          setScrollProgress(progress);
-          setShowBackToTop(window.scrollY > 300);
+    // DOM elements
+    const progressFill = document.getElementById('progress-fill');
+    const backToTopBtn = document.getElementById('back-to-top');
+    const downloadBtn = document.getElementById('download-btn');
+    const tocGrid = document.getElementById('toc-grid');
+    const standardsContainer = document.getElementById('standards-container');
+
+    // Utility functions
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
         };
-        window.addEventListener('scroll', handleScroll);
-        
-        // Initial animation
-        const elements = document.querySelectorAll('.card, .header');
-        elements.forEach((element, index) => {
-          element.style.opacity = '0';
-          element.style.transform = 'translateY(20px)';
-          
-          setTimeout(() => {
-            element.classList.add('fade-in');
-            element.style.opacity = '';
-            element.style.transform = '';
-          }, index * 150);
-        });
-
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, []);
-
-      const toggleSection = (sectionId) => {
-        setExpandedSections(prev => ({
-          ...prev,
-          [sectionId]: !prev[sectionId]
-        }));
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
       };
-
-      const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-
-      const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      };
-
-      const downloadPDF = () => {
-        const printWindow = window.open('', '_blank');
-        const content = `<!DOCTYPE html><html><head><title>AI Ethical Standards - Psychology Squared</title><style>body{font-family:'Lora',serif;margin:40px;line-height:1.6;color:#1A2B44;}h1{color:#D4AF37;border-bottom:2px solid #D4AF37;padding-bottom:10px;font-weight:700;}h2{color:#D4AF37;margin-top:30px;font-weight:700;}h3{color:#1A2B44;margin-top:20px;font-weight:600;}.header{text-align:center;margin-bottom:40px;}.content{margin-bottom:20px;}.standard{margin-bottom:30px;page-break-inside:avoid;}.contact{margin-top:40px;padding-top:20px;border-top:1px solid #D4AF37;}ul{margin:10px 0;}li{margin:8px 0;line-height:1.5;}</style></head><body><div class='header'><h1>AI Ethical Standards</h1><p><strong>Last updated on 30 November 2023</strong></p><p>Psychology Squared Pty Ltd<br/>"Psychology Squared"<br/>ABN 16 638 041 719</p></div><h2>AI Ethical Standards for the Facebook page "AI and Australian Psychology Internship and Early Career" or AI related products and services by Psychology Squared</h2><p><strong>Here's a list of ethical standards for psychologists and psychologists in training regarding the use of AI:</strong></p>${aiStandards.map(standard => `<div class='standard'><h3>${standard.title}</h3>${standard.subtitle ? `<p><em>${standard.subtitle}</em></p>` : ''}${standard.content.length > 0 ? `<ul>${standard.content.map(item => `<li>${item}</li>`).join('')}</ul>` : ''}</div>`).join('')}<div class='contact'><p><strong>Attribution:</strong> Psychology Squared Pty Ltd</p><p><strong>Contact:</strong> hello@psychologysquared.com.au</p></div></body></html>`;
-        printWindow.document.write(content);
-        printWindow.document.close();
-        printWindow.print();
-      };
-
-      return (
-        <div className="min-h-screen">
-          {/* Progress Bar */}
-          <div className="fixed top-0 left-0 w-full h-1 progress-bar z-50">
-            <div 
-              className="h-full progress-fill transition-all duration-300"
-              style={{ width: `${scrollProgress}%` }}
-            />
-          </div>
-
-          {/* Header */}
-          <header className="header sticky top-1 z-40">
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex justify-between items-center">
-                <h1 className="text-2xl main-title">AI Ethical Standards</h1>
-                <div className="flex gap-2">
-                  <button onClick={downloadPDF} className="btn" type="button">
-                    <Download /> Download PDF
-                  </button>
-                </div>
-              </div>
-            </div>
-          </header>
-
-          <div className="container mx-auto px-4 py-8 max-w-4xl">
-            {/* Title Section */}
-            <div className="text-center mb-8">
-              <p className="text-sm text-muted mb-2">Last updated on 30 November 2023</p>
-              <p className="text-sm text-muted mb-4">
-                Psychology Squared Pty Ltd<br/>
-                "Psychology Squared"<br/>
-                ABN 16 638 041 719
-              </p>
-            </div>
-
-            {/* Subtitle */}
-            <div className="card mb-8">
-              <div className="card-header">
-                <div className="card-title text-lg">
-                  AI Ethical Standards for the Facebook page "AI and Australian Psychology Internship and Early Career" or AI related products and services by Psychology Squared
-                </div>
-              </div>
-              <div className="card-content">
-                <p className="font-medium text-secondary">Here's a list of ethical standards for psychologists and psychologists in training regarding the use of AI:</p>
-              </div>
-            </div>
-
-            {/* Table of Contents */}
-            <div className="card mb-8">
-              <div className="card-header">
-                <div className="card-title text-lg">Table of Contents</div>
-              </div>
-              <div className="card-content">
-                <div className="toc-grid">
-                  {aiStandards.map((standard) => (
-                    <button
-                      key={standard.id}
-                      onClick={() => scrollToSection(standard.id)}
-                      className="toc-button"
-                    >
-                      {standard.title}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Standards Sections */}
-            <div className="space-y-4">
-              {aiStandards.map((standard) => (
-                <div key={standard.id} id={standard.id} className="card scroll-mt-20">
-                  <div 
-                    className="card-header cursor-pointer"
-                    onClick={() => toggleSection(standard.id)}
-                  >
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <div className="card-title text-lg">{standard.title}</div>
-                        {standard.subtitle && (
-                          <p className="text-sm text-muted mt-1">{standard.subtitle}</p>
-                        )}
-                      </div>
-                      {expandedSections[standard.id] ? (
-                        <ChevronUp />
-                      ) : (
-                        <ChevronDown />
-                      )}
-                    </div>
-                  </div>
-                  {expandedSections[standard.id] && (
-                    <div className="card-content">
-                      {standard.content.length > 0 ? (
-                        <ul className="space-y-3">
-                          {standard.content.map((item, index) => (
-                            <li key={index} className="text-sm leading-relaxed">
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-sm text-muted italic">
-                          This standard is referenced but no additional details are provided.
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Attribution */}
-            <div className="card mt-8">
-              <div className="card-content pt-6">
-                <div className="text-center space-y-2">
-                  <p className="font-medium text-secondary">Attribution: Psychology Squared Pty Ltd</p>
-                  <div className="flex items-center justify-center gap-2">
-                    <Mail />
-                    <a href="mailto:hello@psychologysquared.com.au">
-                      hello@psychologysquared.com.au
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Back to Top Button */}
-          {showBackToTop && (
-            <button
-              onClick={scrollToTop}
-              className="btn btn-icon fixed bottom-6 right-6 shadow-lg"
-              type="button"
-            >
-              <ArrowUp />
-            </button>
-          )}
-        </div>
-      );
     }
 
-    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    function sanitizeHTML(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Progress bar functionality
+    function updateScrollProgress() {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = Math.min((window.scrollY / totalHeight) * 100, 100);
+      state.scrollProgress = progress;
+      progressFill.style.width = `${progress}%`;
+      progressFill.setAttribute('aria-valuenow', Math.round(progress));
+    }
+
+    // Back to top functionality
+    function updateBackToTopVisibility() {
+      const shouldShow = window.scrollY > 300;
+      if (shouldShow !== state.showBackToTop) {
+        state.showBackToTop = shouldShow;
+        backToTopBtn.classList.toggle('visible', shouldShow);
+        backToTopBtn.setAttribute('aria-hidden', !shouldShow);
+      }
+    }
+
+    // Scroll handler
+    const handleScroll = debounce(() => {
+      updateScrollProgress();
+      updateBackToTopVisibility();
+    }, 16);
+
+    // Section toggling
+    function toggleSection(sectionId) {
+      const content = document.getElementById(`content-${sectionId}`);
+      const chevron = document.getElementById(`chevron-${sectionId}`);
+      const button = document.getElementById(`btn-${sectionId}`);
+      
+      if (!content || !chevron || !button) return;
+
+      const isExpanded = state.expandedSections.has(sectionId);
+      
+      if (isExpanded) {
+        state.expandedSections.delete(sectionId);
+        content.classList.remove('expanded');
+        button.setAttribute('aria-expanded', 'false');
+        chevron.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>`;
+      } else {
+        state.expandedSections.add(sectionId);
+        content.classList.add('expanded');
+        button.setAttribute('aria-expanded', 'true');
+        chevron.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>`;
+      }
+    }
+
+    // Smooth scrolling
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const yOffset = -headerHeight - 20;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ top: y, behavior: 'smooth' });
+        
+        // Focus management for accessibility
+        setTimeout(() => {
+          element.focus();
+        }, 500);
+      }
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Focus management
+      setTimeout(() => {
+        document.getElementById('main-content').focus();
+      }, 500);
+    }
+
+    // PDF generation
+    function generatePDF() {
+      const printWindow = window.open('', '_blank');
+      const content = `
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Ethical Standards - Psychology Squared</title>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: 'Times New Roman', serif; margin: 40px; line-height: 1.6; color: #1A2B44; }
+    h1 { color: #D4AF37; border-bottom: 2px solid #D4AF37; padding-bottom: 10px; font-weight: 700; }
+    h2 { color: #D4AF37; margin-top: 30px; font-weight: 700; }
+    h3 { color: #1A2B44; margin-top: 20px; font-weight: 600; }
+    .header { text-align: center; margin-bottom: 40px; }
+    .content { margin-bottom: 20px; }
+    .standard { margin-bottom: 30px; page-break-inside: avoid; }
+    .contact { margin-top: 40px; padding-top: 20px; border-top: 1px solid #D4AF37; }
+    ul { margin: 10px 0; }
+    li { margin: 8px 0; line-height: 1.5; }
+    em { font-style: italic; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>AI Ethical Standards</h1>
+    <p><strong>Last updated on 30 November 2023</strong></p>
+    <p>Psychology Squared Pty Ltd<br>"Psychology Squared"<br>ABN 16 638 041 719</p>
+  </div>
+  
+  <h2>AI Ethical Standards for the Facebook page "AI and Australian Psychology Internship and Early Career" or AI related products and services by Psychology Squared</h2>
+  <p><strong>Here's a list of ethical standards for psychologists and psychologists in training regarding the use of AI:</strong></p>
+  
+  ${aiStandards.map(standard => `
+    <div class="standard">
+      <h3>${sanitizeHTML(standard.title)}</h3>
+      ${standard.subtitle ? `<p><em>${sanitizeHTML(standard.subtitle)}</em></p>` : ''}
+      ${standard.content.length > 0 ? `
+        <ul>
+          ${standard.content.map(item => `<li>${sanitizeHTML(item)}</li>`).join('')}
+        </ul>
+      ` : ''}
+    </div>
+  `).join('')}
+  
+  <div class="contact">
+    <p><strong>Attribution:</strong> Psychology Squared Pty Ltd</p>
+    <p><strong>Contact:</strong> hello@psychologysquared.com.au</p>
+  </div>
+</body>
+</html>`;
+
+      printWindow.document.write(content);
+      printWindow.document.close();
+      
+      // Wait for content to load before printing
+      printWindow.onload = function() {
+        printWindow.print();
+      };
+    }
+
+    // Render functions
+    function renderTableOfContents() {
+      tocGrid.innerHTML = aiStandards.map(standard => `
+        <button type="button" class="toc-button" onclick="scrollToSection('${standard.id}')" 
+                aria-describedby="toc-desc-${standard.id}">
+          ${sanitizeHTML(standard.title)}
+          <span id="toc-desc-${standard.id}" class="sr-only">Jump to ${sanitizeHTML(standard.title)} section</span>
+        </button>
+      `).join('');
+    }
+
+    function renderStandards() {
+      standardsContainer.innerHTML = aiStandards.map(standard => `
+        <article class="card" id="${standard.id}" tabindex="-1">
+          <header class="card-header">
+            <button type="button" class="expandable-header" id="btn-${standard.id}" 
+                    onclick="toggleSection('${standard.id}')" 
+                    aria-expanded="false" 
+                    aria-controls="content-${standard.id}">
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="card-title text-lg">${sanitizeHTML(standard.title)}</h3>
+                  ${standard.subtitle ? `<p class="text-sm text-muted mt-1">${sanitizeHTML(standard.subtitle)}</p>` : ''}
+                </div>
+                <svg class="icon" id="chevron-${standard.id}" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </button>
+          </header>
+          <div class="expandable-content" id="content-${standard.id}">
+            <div class="card-content">
+              ${standard.content.length > 0 ? `
+                <ul class="content-list space-y-3">
+                  ${standard.content.map(item => `<li class="text-sm leading-relaxed">${sanitizeHTML(item)}</li>`).join('')}
+                </ul>
+              ` : `
+                <p class="text-sm text-muted italic">
+                  This standard is referenced but no additional details are provided.
+                </p>
+              `}
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // Animation utilities
+    function animateElements() {
+      const elements = document.querySelectorAll('.card, .header');
+      elements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+          element.classList.add('fade-in');
+          element.style.opacity = '';
+          element.style.transform = '';
+        }, index * 150);
+      });
+    }
+
+    // Keyboard navigation
+    function handleKeydown(event) {
+      // Handle escape key to close expanded sections
+      if (event.key === 'Escape' && state.expandedSections.size > 0) {
+        const lastExpanded = Array.from(state.expandedSections).pop();
+        toggleSection(lastExpanded);
+        document.getElementById(`btn-${lastExpanded}`).focus();
+      }
+    }
+
+    // Initialize application
+    function init() {
+      // Render content
+      renderTableOfContents();
+      renderStandards();
+      
+      // Set up event listeners
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('keydown', handleKeydown);
+      
+      backToTopBtn.addEventListener('click', scrollToTop);
+      downloadBtn.addEventListener('click', generatePDF);
+      
+      // Initialize progress bar attributes
+      progressFill.setAttribute('aria-valuemin', '0');
+      progressFill.setAttribute('aria-valuemax', '100');
+      progressFill.setAttribute('aria-valuenow', '0');
+      
+      // Initial state
+      updateScrollProgress();
+      updateBackToTopVisibility();
+      
+      // Animate elements after a short delay
+      setTimeout(animateElements, 100);
+      
+      // Set focus to main content for screen readers
+      document.getElementById('main-content').setAttribute('tabindex', '-1');
+    }
+
+    // Start the application when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    // Add screen reader only class
+    const style = document.createElement('style');
+    style.textContent = `
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 </body>
 </html>
